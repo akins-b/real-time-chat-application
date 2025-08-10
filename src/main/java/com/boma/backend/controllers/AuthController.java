@@ -1,26 +1,21 @@
-package com.boma.backend.security;
+package com.boma.backend.controllers;
 
 import com.boma.backend.dto.request.LoginRequest;
 import com.boma.backend.dto.request.RegistrationRequest;
 import com.boma.backend.dto.response.AuthResponse;
-import com.boma.backend.dto.response.UserResponssDTO;
-import com.boma.backend.services.impl.AuthServiceImpl;
-import com.boma.backend.services.impl.UserServiceImpl;
+import com.boma.backend.services.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
-    private final AuthServiceImpl service;
+    private final AuthService service;
 
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> register(RegistrationRequest request){
